@@ -1,0 +1,46 @@
+---
+version: "0.1"
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+
+runson: mac
+
+autosplit: true
+
+retryOnFailure: false
+maxRetries: 1
+concurrency: 5
+
+pre:
+  - npm install
+
+cacheKey: '{{ checksum "package.json" }}'
+cacheDirectories:
+  - node_modules
+
+# Artefact merging not needed as of now
+#mergeArtifacts: true
+#uploadArtefacts:
+#  - name: FinalReport
+#    path:
+#      - /
+
+report: true
+partialReports:
+  type: json
+  location: /
+  frameworkName: extent
+
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: grep -lr 'Scenario' todomvc-tests/*_test.js
+testRunnerCommand: npx codeceptjs run --config codecept.webdriver-lambdatest.conf.js $test
+
+
+jobLabel: [CodeceptJS, mac, autosplit]
+
+# Tunnel is inactive.
+# Tunnel is not required for "todomvc-tests" since npm dependencies and the application under test are publicly accessible
+tunnel: false

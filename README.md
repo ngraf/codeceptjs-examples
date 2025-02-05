@@ -66,6 +66,24 @@ Run tests in parallel with 3 workers:
 npx codeceptjs run-workers 3
 ```
 
+## Lambdatest Execution
+
+Prerequisites:
+- Set `LT_USERNAME` and `LT_ACCESS_KEY` environment variables with your Lambdatest credentials
+- `hyperexecute` binary should be installed
+
+Run tests in Lambdatests's "Web Automation" product:
+
+```
+npx codeceptjs run --config codecept.webdriver-lambdatest.conf.js
+```
+
+Run tests in Lambdatests's "Hyperexecute" product: (requires `hyperexecute` binary to be installled)
+
+```
+hyperexecute
+```
+
 ## Credits
 
 Created as part of codepress by Stefan Huber.
