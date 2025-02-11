@@ -23,11 +23,11 @@
   "devDependencies": {
     "@codeceptjs/configure": "^0.5.0",
     "@codeceptjs/ui": "^0.2.0",
-    "@wdio/selenium-standalone-service": "^5.16.10",
-    "codeceptjs": "3.5.12",
+    "@wdio/selenium-standalone-service": "8.15.0",
+    "codeceptjs": "3.7.1",
     "playwright": "1.41.2",
     "puppeteer": "^2.0.0",
     "testcafe": "^1.7.0",
-    "webdriverio": "^5.16.11"
+    "webdriverio": "8.41.0"
   }
 }

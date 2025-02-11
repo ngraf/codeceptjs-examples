@@ -42,6 +42,23 @@ Use `codecept.webdriver.conf.js` to run tests with WebdriverIO in Chrome:
 npx codeceptjs run -c codecept.webdriver.conf.js --steps 
 ```
 
+-> This will produce error `Error: Failed to execute WebDriver Bidi command "sessionSubscribe" as no Bidi session was established. Make sure you enable it by setting "webSocketUrl: true" in your capabilities and verify that your environment and browser supports it.` in CodeceptJS 3.7.1 with WebDriver 8+.
+Test will still run, but it looks frightening:
+
+```
+$ npx codeceptjs run -c codecept.webdriver.conf.js
+[..]
+@first Create Todos @step:06 @smoke @story:12345 --
+Error: Failed to execute WebDriver Bidi command "sessionSubscribe" as no Bidi session was established. Make sure you enable it by setting "webSocketUrl: true" in your capabilities and verify that your environment and browser supports it.
+  ✔ Create a new todo item in 2727ms
+Error: Failed to execute WebDriver Bidi command "sessionSubscribe" as no Bidi session was established. Make sure you enable it by setting "webSocketUrl: true" in your capabilities and verify that your environment and browser supports it.
+  ✔ Create multiple todo items in 6493ms
+Error: Failed to execute WebDriver Bidi command "sessionSubscribe" as no Bidi session was established. Make sure you enable it by setting "webSocketUrl: true" in your capabilities and verify that your environment and browser supports it.
+  ✔ Todos containing weird characters | {"Todo Text":"Todo with umlauts äöü","Result":"is in list"} in 2150ms
+[..]
+```
+
+
 ## TestCafe
 
 Use `codecept.testcafe.conf.js` to run tests with TestCafe in Chrome:

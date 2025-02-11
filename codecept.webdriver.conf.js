@@ -29,13 +29,6 @@ exports.config = {
     TodosPage: './todomvc-tests/pages/todos.page.js'
   },
 
-  plugins: {
-    wdio: {
-      enabled: true,
-      services: ['selenium-standalone']
-    }
-  },
-
   bootstrap: null,
   mocha: {},
   name: 'codecept demo tests'
