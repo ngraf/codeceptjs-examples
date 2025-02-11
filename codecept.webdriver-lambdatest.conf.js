@@ -24,8 +24,12 @@ exports.config = {
       path: '/wd/hub',
       user: process.env.LT_USERNAME,
       key: process.env.LT_ACCESS_KEY,
-
       browser: 'chrome',
+      capabilities: {
+        'LT:Options': {
+          build: 'Build ' + new Date().getTime(),
+        }
+      },
     },
 
     REST: {},
